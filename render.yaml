@@ -1,12 +1,12 @@
 services:
   - type: web
     name: photo-mood-generator
-    env: node
+    env: python
     plan: free
-    buildCommand: npm install
-    startCommand: npm start
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app
     envVars:
       - key: OPENAI_API_KEY
         sync: false
       - key: PORT
-        value: 3000
+        value: 10000

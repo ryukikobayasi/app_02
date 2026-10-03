@@ -12,18 +12,22 @@
 
 ## 使い方
 
-1. `npm install`
-2. `.env.example` を `.env` にコピーして、`OPENAI_API_KEY` を設定
-3. `npm start`
-4. http://localhost:3000 を開く
+1. Python 3.10 以上をインストール
+2. 仮想環境を作成
+   - Windows PowerShell: `python -m venv .venv`
+3. 依存関係をインストール
+   - PowerShellの実行ポリシーに影響されない方法: `.venv\Scripts\python.exe -m pip install -r requirements.txt`
+4. `.env.example` を `.env` にコピーして、`OPENAI_API_KEY` を設定
+5. `.venv\Scripts\python.exe app.py`
+6. http://localhost:3000 を開く
 
 ## Render へのデプロイ
 
 1. GitHub にこのリポジトリを push
 2. Render で `New + Web Service` を選択
 3. GitHub リポジトリを接続
-4. `Build Command`: `npm install`
-5. `Start Command`: `npm start`
+4. `Build Command`: `pip install -r requirements.txt`
+5. `Start Command`: `gunicorn app:app`
 6. 環境変数 `OPENAI_API_KEY` を追加
 7. デプロイ
 
