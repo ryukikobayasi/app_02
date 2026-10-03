@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Photo Mood Generator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">AI PHOTO POST</p>
+          <h1>今日の写真を、もっと想い出になる投稿に</h1>
+        </div>
+      </header>
+
+      <main class="app-grid">
+        <section class="panel form-panel">
+          <h2>写真をアップロード</h2>
+
+          <label class="upload-box" for="photoInput">
+            <input id="photoInput" type="file" accept="image/*" />
+            <span>画像を選ぶ</span>
+          </label>
+
+          <div class="preview-wrap">
+            <img id="photoPreview" alt="uploaded preview" hidden />
+          </div>
+
+          <div class="field-group">
+            <label for="themeSelect">テーマ</label>
+            <select id="themeSelect">
+              <option value="attendance">今日は出勤</option>
+              <option value="thanks">お礼</option>
+              <option value="daily">日常</option>
+              <option value="travel">旅行</option>
+              <option value="celebration">お祝い</option>
+            </select>
+          </div>
+
+          <div class="field-group">
+            <label for="moodSelect">雰囲気</label>
+            <select id="moodSelect">
+              <option value="friendly">フレンドリー</option>
+              <option value="gyaru">ギャルっぽい</option>
+              <option value="clean">清楚</option>
+              <option value="sweet">甘め</option>
+              <option value="adult">大人っぽい</option>
+            </select>
+          </div>
+
+          <div class="field-group">
+            <label for="descriptionInput">写真の補足（任意）</label>
+            <textarea id="descriptionInput" rows="4" placeholder="例: 先輩と一緒にランチ、少し照れくさそうな表情"></textarea>
+          </div>
+
+          <div class="actions-row">
+            <button id="generateBtn" class="primary-button">AIで生成</button>
+          </div>
+        </section>
+
+        <section class="panel result-panel">
+          <h2>生成結果</h2>
+
+          <div id="resultCard" class="result-card empty">
+            <p>写真とテーマを入力すると、タイトル・本文・絵文字・ハッシュタグが生成されます。</p>
+          </div>
+
+          <div class="regenerate-group">
+            <button id="shortBtn" class="secondary-button">もっと短く</button>
+            <button id="vibeBtn" class="secondary-button">違う雰囲気</button>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="/app.js"></script>
+  </body>
+</html>
